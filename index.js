@@ -18,7 +18,8 @@ function userInput() {
         {
             type: "input",
             name: "installation",
-            message: "What command should be run to install dependencies?"
+            message: "What command should be run to install dependencies?",
+            default: "npm i"
         },
         {
             type: "input",
@@ -33,7 +34,8 @@ function userInput() {
         {
             type: "input",
             name: "test",
-            message: "What command should be run to run tests?"
+            message: "What command should be run to run tests?",
+            default: "npm test"
         },
         {
             type: "list",
@@ -55,7 +57,7 @@ function userInput() {
             type: "input",
             name: "fileName",
             message: "What do you want to call this readme?",
-        },]
+        }]
 
     )
 };

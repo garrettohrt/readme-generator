@@ -6,9 +6,9 @@ function renderLicenseBadge(license) {
   } else if (license === "GNU GPLv3") {
     return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
   } else if (license === "BSD 3-Clause License") {
-    return  "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+    return "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
   } else if (license === "MIT License") {
-    return  "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
   } else {
     return ""
   }
@@ -20,19 +20,19 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (license === "Apache License 2.0") {
     return `
-This application is covered by the Apache v2.0 License, the terms of which can be found [here](https://www.apache.org/licenses/LICENSE-2.0.txt).
+(https://www.apache.org/licenses/LICENSE-2.0.txt).
     `;
   } else if (license === "GNU GPLv3") {
     return `
-This application is covered by the GNU General Purpose License, the terms of which can be found [here](https://www.gnu.org/licenses/gpl-3.0.en.html).
+(https://www.gnu.org/licenses/gpl-3.0.en.html).
     `;
   } else if (license === "BSD 3-Clause License") {
     return `
-This application is covered by the BSD 3-Clause License, the terms of which can be found [here](https://opensource.org/licenses/BSD-3-Clause).
+(https://opensource.org/licenses/BSD-3-Clause).
     `;
   } else if (license === "MIT License") {
     return `
-This application is covered by the MIT License, the terms of which can be found [here](https://opensource.org/licenses/MIT).
+(https://opensource.org/licenses/MIT).
     `;
   } else {
     return ""
@@ -43,22 +43,25 @@ This application is covered by the MIT License, the terms of which can be found 
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license === "Apache License 2.0") {
-    return `## License
-    ${renderLicenseLink(data.license)}
+    return `## License\n
+    This application is covered by the Apache v2.0 License, the terms of which can be found [here]${renderLicenseLink(data.license)}
     `;
   } else if
     (license === "GNU GPLv3") {
-    return `## License
+    return `## License\n
+    This application is covered by the GNU General Purpose License, the terms of which can be found [here]
     ${renderLicenseLink(data.license)}
     `;
   } else if
     (license === "BSD 3-Clause License") {
-    return `## License
+    return `## License\n
+    This application is covered by the BSD 3-Clause License, the terms of which can be found [here]
     ${renderLicenseLink(data.license)}
     `;
   } else if
     (license === "MIT License") {
-    return `## License
+    return `## License\n
+    This application is covered by the MIT License, the terms of which can be found [here]
     ${renderLicenseLink(data.license)}
     `;
   } else {
@@ -80,7 +83,7 @@ function generateMarkdown(data) {
   * [How to Contribute](#how-to-contribute)
   * [Tests](#tests)
   * [Questions?](#questions)
-${renderLicenseSection}
+  ${renderLicenseSection(data.license)}
   ## Description
   ${data.description}
   ## Installation
